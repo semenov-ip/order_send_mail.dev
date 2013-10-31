@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Форма заказа</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/valid_form.js"></script>
+</head>
+
+<body>
+  <div id="content">
+    <form action="/" name="form" method="post">
+      <div class="row">
+        <div class="param"><label for="name">Ваше имя:</label></div>
+        <div class="value"><input type="text" name="name" id="name" /></div>
+      </div>
+      <div class="row">
+        <div class="param"><label for="email">Ваш E-mail:</label></div>
+        <div class="value"><input type="text" name="email" id="email" /></div>
+      </div>
+      <div class="row">
+          <div class="param"><label for="age">Возраст:</label></div>
+          <div class="value">
+            <div class="input">
+              <input type="text" name="age" value="" placeholder="Возраст" />
+            </div>
+      </div>
+      <div class="row">
+          <div class="param"><label for="message">Коротко о проблеме:</label></div>
+          <div class="value"><textarea name="message" id="message"></textarea></div>
+      </div>
+      <div class="row">
+        <div class="param">&nbsp;</div>
+        <div class="value">
+          <a onclick="checkFields(event, this);" href="#">Отправить</a>
+        </div>
+      </div>
+    </form>
+
+    <form action="/admin/mail_send/send/" name="form" method="post">
+
+    </form>
+  </div>
+</body>
+</html>
