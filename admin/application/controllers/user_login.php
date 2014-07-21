@@ -28,10 +28,10 @@
                     $error_message = 1;
                     redirect( $this->header_arr['base_url']."user_login/check_out/", 'location' );
                 }
-                
+
 				$data = array (
-					'username' => $user, // admin
-					'password' => $password // F93undMjaf
+					'username' => $user,
+					'password' => $password
 				);
 				
 				$this->load->model('check_out_mod/check_out_mod');

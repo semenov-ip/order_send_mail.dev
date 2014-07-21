@@ -7,26 +7,27 @@
 		}
         
         function send(){
-            if(isset($_POST['email'])){
+            if(isset($_POST['name'])){
                 $data_where = array(
                     'on_off' => 1,
                     'status_send' => 0
                 );
                 $this->load->model("mail_crud/mail_crud_mod");
                 $email = $this->mail_crud_mod->mail_send_mod($data_where);
+
+                $_POST['email'] = $email;
+
+                $_POST['time'] = isset($_POST['time']) ? $_POST['time'] : "Это форма заявки.";
                 
                 $template = '
                     Как Вас зовут?
                     '.$_POST['name'].'
-                    
-                    Ваш Email*
-                    '.$_POST['email'].'
-                    
-                    Ваш возраст?
-                    '.$_POST['age'].'
-                    
-                    Опишите проблему
-                    '.$_POST['message'];
+
+                    Номер телефона?
+                    '.$_POST['phone'].'
+
+                    Удобное время звонка?
+                    '.$_POST['time'];
                 
                 $subject = "Новая заявка";
                 
@@ -36,8 +37,8 @@
                         ."Reply-To: ".$_POST['email']."\r\n"
                         ."Content-type: text/plain; charset=utf-8\r\n"
                         ."X-Mailer: PHP/" . phpversion());
-                    
-                    header("Location: /help/send.html");
+
+                    header("Location: /?q=node/29");
                 }
             }
         }
